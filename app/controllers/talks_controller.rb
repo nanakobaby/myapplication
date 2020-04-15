@@ -6,8 +6,12 @@ class TalksController < ApplicationController
     @talk = Talk.new
   end
   def create
-    Talk.create(talk_params)
-    redirect_to new_talk_path
+    @talk = Talk.new(talk_params)
+    if @talk.save
+      redirect_to talks_path, notice: "トークを作成しました！"
+    else
+      render :new
+    end
   end
   def show
     @talk = Talk.find(params[:id])
