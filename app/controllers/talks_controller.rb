@@ -9,6 +9,9 @@ class TalksController < ApplicationController
     Talk.create(talk_params)
     redirect_to new_talk_path
   end
+  def show
+    @talk = Talk.find(params[:id])
+  end
   private
   def talk_params
     params.require(:talk).permit(:content)

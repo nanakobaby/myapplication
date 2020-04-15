@@ -1,13 +1,14 @@
-<h1>Talks 一覧</h1>
+<h1>トーク 一覧</h1>
 <table>
   <tr>
-    <th>talks</th>
+    <th>内容</th>
   </tr>
-<%= @talks.each do |talk| %>
+<% @talks.each do |talk| %>
   <tr>
     <td><%= talk.content %></td>
+    <td><%= link_to 'トークを確認する', talk_path(talk.id) %></td>
   </tr>
 <% end %>
 </table>
-<%= link_to 'Talks一覧画面に戻る', talks_path %>
+<br>
 <%= link_to '新しく投稿する', new_talk_path %>
