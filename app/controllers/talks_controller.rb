@@ -1,5 +1,5 @@
 class TalksController < ApplicationController
-  before_action :set_talk, only: [:show, :edit, :update]
+  before_action :set_talk, only: [:show, :edit, :update, :destroy]
   def index
     @talks = Talk.all
   end
@@ -24,6 +24,10 @@ class TalksController < ApplicationController
     else
       render :edit
     end
+  end
+  def destroy
+    @talk.destroy
+    redirect_to talks_path, notice: "トークを削除しました！"
   end
   private
   def talk_params
