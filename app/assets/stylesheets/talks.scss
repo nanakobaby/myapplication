@@ -1,3 +1,32 @@
-// Place all the styles related to the talks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  min-height: 100%;
+}
+
+body {
+  text-align: center;
+  background-image: url("https://www.pakutaso.com/shared/img/thumb/twitterIMGL4254_TP_V.jpg");
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  height: 70px;
+  background-color: #33CCFF;
+}
+
+.header_logo {
+  color: white;
+  padding: 15px;
+  font-size: 30px;
+}
+
+footer {
+  height: 70px;
+  background-color: #CCFFFF;
+  margin-top: auto;
+}

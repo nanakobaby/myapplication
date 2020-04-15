@@ -1,17 +1,35 @@
-<h1>トーク 一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>内容</th>
-  </tr>
-<% @talks.each do |talk| %>
-  <tr>
-    <td><%= talk.content %></td>
-    <td><%= link_to 'トークを確認する', talk_path(talk.id) %></td>
-    <td><%= link_to "トークを編集する", edit_talk_path(talk.id) %></td>
-    <td><%= link_to 'トークを削除する', talk_path(talk.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
-<br>
-<%= link_to '新しく投稿する', new_talk_path %>
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Talk</title>
+    <link rel="stylesheet" href="../../css/normalize.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div class="header_logo">Talk</div>
+      </header>
+      <h1>トーク 一覧</h1>
+      <p><%= notice %></p>
+      <table>
+        <tr>
+          <th>内容</th>
+        </tr>
+      <% @talks.each do |talk| %>
+        <tr>
+          <td><%= talk.content %></td>
+          <td><%= link_to 'トークを確認する', talk_path(talk.id) %></td>
+          <td><%= link_to "トークを編集する", edit_talk_path(talk.id) %></td>
+          <td><%= link_to 'トークを削除する', talk_path(talk.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+        </tr>
+      <% end %>
+      </table>
+      <br>
+      <%= link_to '新しく投稿する', new_talk_path %>
+      <footer>
+        <p>©︎2020 Copyright Nanako Kan</p>
+      </footer>
+    </div>
+  </body>
+</html>
