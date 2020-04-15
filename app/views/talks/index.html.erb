@@ -7,6 +7,7 @@
   <tr>
     <td><%= talk.content %></td>
     <td><%= link_to 'トークを確認する', talk_path(talk.id) %></td>
+    <td><%= link_to "トークを編集する", edit_talk_path(talk.id) %></td>
   </tr>
 <% end %>
 </table>

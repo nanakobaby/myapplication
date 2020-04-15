@@ -1,4 +1,5 @@
 class TalksController < ApplicationController
+  before_action :set_talk, only: [:show, :edit, :update]
   def index
     @talks = Talk.all
   end
@@ -14,10 +15,21 @@ class TalksController < ApplicationController
     end
   end
   def show
-    @talk = Talk.find(params[:id])
+  end
+  def edit
+  end
+  def update
+    if @talk.update(talk_params)
+      redirect_to talks_path, notice: "トークを編集しました！"
+    else
+      render :edit
+    end
   end
   private
   def talk_params
     params.require(:talk).permit(:content)
+  end
+  def set_talk
+    @talk = Talk.find(params[:id])
   end
 end
