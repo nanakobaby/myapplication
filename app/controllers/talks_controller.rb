@@ -8,10 +8,14 @@ class TalksController < ApplicationController
   end
   def create
     @talk = Talk.new(talk_params)
-    if @talk.save
-      redirect_to talks_path, notice: "トークを作成しました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @talk.save
+        redirect_to talks_path, notice: "トークを作成しました！"
+      else
+        render :new
+      end
     end
   end
   def show
@@ -28,6 +32,10 @@ class TalksController < ApplicationController
   def destroy
     @talk.destroy
     redirect_to talks_path, notice: "トークを削除しました！"
+  end
+  def confirm
+    @talk = Talk.new(talk_params)
+    render :new if @talk.invalid?
   end
   private
   def talk_params
