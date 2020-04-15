@@ -1,2 +1,13 @@
-<h1>Talks#index</h1>
-<p>Find me in app/views/talks/index.html.erb</p>
+<h1>Talks 一覧</h1>
+<table>
+  <tr>
+    <th>talks</th>
+  </tr>
+<%= @talks.each do |talk| %>
+  <tr>
+    <td><%= talk.content %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Talks一覧画面に戻る', talks_path %>
+<%= link_to '新しく投稿する', new_talk_path %>
